@@ -17,8 +17,8 @@ exports.up = function (knex, Promise) {
         })
         .createTable('recipe_ingredients', tbl => {
             tbl.increments()
-            tbl.integer('recipe_id').unsigned().notNullable().references('id').inTable('ingredients').onUpdate('CASCADE').onDelete('CASCADE')
-            tbl.integer('ingredient_id').unsigned().notNullable().references('ingredients.id')
+            tbl.integer('recipe_id').unsigned().notNullable().references('id').inTable('recipes').onUpdate('CASCADE').onDelete('CASCADE')
+            tbl.integer('ingredient_id').unsigned().notNullable().references('id').inTable('ingredients').onUpdate('CASCADE').onDelete('CASCADE')
             tbl.float('quantity')
         })
 
